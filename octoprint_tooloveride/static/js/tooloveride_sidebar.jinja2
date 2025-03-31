@@ -1,0 +1,31 @@
+<style>
+.form-horizontal .label-fix{
+    text-align: left !important;
+    width: 60px !important;
+}
+.controls-fix{
+    margin-left: 80px !important;
+}
+.select-fix{
+    width: 40%;
+}
+</style>
+
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label label-fix" name="Overide">Overide</label>
+        <div class="controls-fix controls">
+            <input name="Overide" type='checkbox' data-bind="checked: overrideEnabled"/>
+        </div>
+    </div>
+    <br>
+    <div class="control-group">
+        <label class="control-label label-fix" name="tool">Tool:</label>
+        <div class="controls controls-fix">
+            <select class="select-fix" name="tool" data-bind="value: toolNumber">
+                <option value=0>0</option>
+                <option value=1>1</option>
+            </select>
+        </div>
+    </div>
+</form>
