@@ -13,9 +13,8 @@ $(function() {
         toolUi.addEventListener("change", updateNow);
 
         function updateNow(e) {
-            console.log(e.target.value)
             updateIt = document.querySelector('[data-test-id="settings-save"]');
-            setTimeout(()=>{updateIt.click();console.log("wait?");},90);
+            setTimeout(()=>{updateIt.click(),9);
         }
 
 
@@ -24,9 +23,6 @@ $(function() {
             self.toolNumber(self.settings.settings.plugins.tooloveride.toolNumber());
         }
 
-        self.onEventSettingsUpdated = function(payload){
-
-        }
         
     }
 
@@ -34,7 +30,7 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push([
         ToolOverideViewModel,
         ["settingsViewModel"],
-        ["#sidebar_plugin_tooloveride","#settings_plugin_tooloveride"]
+        ["#sidebar_plugin_tooloveride"]
     ])
 
     

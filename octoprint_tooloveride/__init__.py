@@ -59,7 +59,7 @@ class TooloveridePlugin(octoprint.plugin.SettingsPlugin,
     def changeToolHead(self, comm_instance, phase, cmd, cmd_type, gcode, *args, **kwargs):
         if gcode and gcode[0] == "T":
             self._logger.info("Tool change command qued...")
-            self._logger.info(str(self._settings.get(["overrideEnabled"]))+self._settings.get(["toolNumber"]))
+            #self._logger.info(str(self._settings.get(["overrideEnabled"]))+self._settings.get(["toolNumber"]))
             if self._settings.get(["overrideEnabled"]):
                 self._logger.info("Override enabled, replacing command with tool "+self._settings.get(["toolNumber"]))
                 cmd = "T"+self._settings.get(["toolNumber"])
