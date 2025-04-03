@@ -12,20 +12,21 @@
 </style>
 
 <form class="form-horizontal">
-    <div class="control-group">
+        <div class="control-group">
         <label class="control-label label-fix" name="Overide">Overide</label>
         <div class="controls-fix controls">
-            <input name="Overide" type='checkbox' data-bind="checked: settingsViewModel.settings.plugins.tooloveride.overrideEnabled"/>
+            <input class="UI" name="Overide" type='checkbox' data-bind="checked: settings.settings.plugins.tooloveride.overrideEnabled"/>
         </div>
     </div>
     <br>
     <div class="control-group">
         <label class="control-label label-fix" name="tool">Tool:</label>
         <div class="controls controls-fix">
-            <select class="select-fix" name="tool" data-bind="value: settings.settings.plugins.tooloveride.toolNumber">
+            <select class="select-fix UI" name="tool" data-bind="value: settings.settings.plugins.tooloveride.toolNumber">
                 <option value=0>0</option>
                 <option value=1>1</option>
             </select>
         </div>
     </div>
+
 </form>

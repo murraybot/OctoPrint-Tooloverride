@@ -5,8 +5,19 @@ $(function() {
 
         self.overrideEnabled = ko.observable();
         self.toolNumber = ko.observable();
+        self.pluginName = "tooloveride";
 
-        console.log(self.settings)
+        overrideUi = document.querySelector('.UI[name="Overide"]');
+        toolUi = document.querySelector('.UI[name="tool"]');
+        overrideUi.addEventListener("input", updateNow);
+        toolUi.addEventListener("change", updateNow);
+
+        function updateNow(e) {
+            console.log(e.target.value)
+            updateIt = document.querySelector('[data-test-id="settings-save"]');
+            setTimeout(()=>{updateIt.click();console.log("wait?");},90);
+        }
+
 
         self.onBeforeBinding = function(){
             self.overrideEnabled(self.settings.settings.plugins.tooloveride.overrideEnabled());
@@ -14,18 +25,16 @@ $(function() {
         }
 
         self.onEventSettingsUpdated = function(payload){
-            self.overrideEnabled(self.settings.settings.plugins.tooloveride.overrideEnabled());
-            self.toolNumber(self.settings.settings.plugins.tooloveride.toolNumber());
-            console.log(self.toolNumber)
-        }
-    }
 
+        }
+        
+    }
 
 
     OCTOPRINT_VIEWMODELS.push([
         ToolOverideViewModel,
         ["settingsViewModel"],
-        ["#settings_plugin_tooloveride"]
+        ["#sidebar_plugin_tooloveride","#settings_plugin_tooloveride"]
     ])
 
     

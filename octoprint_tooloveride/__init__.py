@@ -20,8 +20,8 @@ class TooloveridePlugin(octoprint.plugin.SettingsPlugin,
 
     def get_template_configs(self):
         return [
-			dict(type="sidebar", custom_bindings=False),
-            dict(type="settings", custom_bindings=False)
+			dict(type="sidebar", custom_bindings=True),
+            
 		]
     ##~~ AssetPlugin mixin
 
@@ -60,6 +60,9 @@ class TooloveridePlugin(octoprint.plugin.SettingsPlugin,
         if gcode and gcode[0] == "T":
             self._logger.info("Tool change command qued...")
             self._logger.info(str(self._settings.get(["overrideEnabled"]))+self._settings.get(["toolNumber"]))
+            if self._settings.get(["overrideEnabled"]):
+                self._logger.info("Override enabled, replacing command with tool "+self._settings.get(["toolNumber"]))
+                cmd = "T"+self._settings.get(["toolNumber"])
         return cmd,
 
 __plugin_name__ = "Tooloveride Plugin"
