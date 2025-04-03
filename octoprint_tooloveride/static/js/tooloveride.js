@@ -14,7 +14,7 @@ $(function() {
 
         function updateNow(e) {
             updateIt = document.querySelector('[data-test-id="settings-save"]');
-            setTimeout(()=>{updateIt.click(),9);
+            setTimeout(()=>{updateIt.click()},9);
         }
 
 
